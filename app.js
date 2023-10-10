@@ -1,32 +1,37 @@
-"use strict";
+'use strict'
 
-const spendingBars = document.querySelectorAll(".spending-bar");
-const dailySpendings = document.querySelectorAll(".spendings");
-const daysOfWeek = document.querySelectorAll(".day");
-const weeklyreportContainer = document.querySelector(".weekly-report");
-const dailyReport = document.querySelectorAll(".daily-report");
+const spendingBars = document.querySelectorAll('.spending-bar')
+const dailySpendings = document.querySelectorAll('.spendings')
+const daysOfWeek = document.querySelectorAll('.day')
+const weeklyreportContainer = document.querySelector('.weekly-report')
+const dailyReport = document.querySelectorAll('.daily-report')
 
-let html = "";
+let html = ''
+
+const today = new Date().toString().slice(0, 3).toLowerCase()
+console.log(today)
 
 // Fetching Json Data
 const jsonData = async function () {
-  const response = await fetch("./data.json");
-  const data = await response.json();
+  const response = await fetch('./data.json')
+  const data = await response.json()
 
   data.forEach((_, i) => {
-    let amount = data[i].amount;
-    let height = Math.trunc(data[i].amount * 3);
-    let day = data[i].day;
+    let amount = data[i].amount
+    let height = Math.trunc(data[i].amount * 3)
+    let day = data[i].day
 
     html += `
     <div class="daily-report">
     <small class="spendings" >${amount}</small>
-    <div class="spending-bar" style="height:${height}px" ></div>
+    <div class="spending-bar ${
+      day === today ? 'current-day' : ''
+    }" style="height:${height}px" ></div>
     <p class="day">${day}</p>
-    </div>`;
-  });
+    </div>`
+  })
 
-  weeklyreportContainer.innerHTML = html;
-};
+  weeklyreportContainer.innerHTML = html
+}
 
-jsonData();
+jsonData()
