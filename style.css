@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Red+Hat+Text:wght@700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Red+Hat+Text:wght@700&display=swap');
 
 * {
   margin: 0;
@@ -11,7 +11,7 @@ html {
 }
 
 body {
-  font-family: "DM sans", sans-serif;
+  font-family: 'DM sans', sans-serif;
   /* max-width: 1442rem; */
   min-height: 100vh;
   background-color: hsl(27, 66%, 92%);
@@ -89,6 +89,7 @@ h4 {
   padding: 0.6rem;
   border-radius: 0.5rem;
   opacity: 0;
+  transition: opacity 0.2s;
 }
 
 .spending-bar {
@@ -98,12 +99,12 @@ h4 {
   border-radius: 0.5rem;
 }
 
-.spending-bar.currentay {
+.spending-bar.current-day {
   background-color: hsl(186, 34%, 60%);
 }
 
 .spending-bar:hover {
-  opacity: 0.5;
+  opacity: 0.6;
 }
 
 .show-bar {
